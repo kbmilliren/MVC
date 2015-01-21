@@ -28,6 +28,44 @@ namespace mvc.Controllers
               
                 return View(responseModel);
         }
+        [HttpGet]
+        public ActionResult FindLongestWord()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult FindLongestWord(string text)
+        {
+            var wordinator = new Wordinator(text);
+            var responseModel = new LongestWordViewModel
+           {
+               text = text,
+               longest = wordinator.findLongestWord()
+
+           };
+            return View(responseModel);
+        }
+        [HttpGet]
+        public ActionResult CountAlice()
+        {
+            return View();
+        
+        }
+        [HttpPost]
+        public ActionResult CountAlice(string text)
+        {
+
+            var wordinator = new Wordinator(text);
+
+            var responseModel = new CountAliceViewModel
+            {
+                text = text,
+                count = wordinator.countAlice()
+            };
+            
+            return View(responseModel);
+        }
+
     } 
     
 }

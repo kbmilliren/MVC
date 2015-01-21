@@ -1,0 +1,27 @@
+﻿@model mvc.Models.LongestWordViewModel
+
+@{
+    ViewBag.Title = "FindLongestWord";
+}
+
+<h2>FindLongestWord</h2>
+
+
+<h5> Longest Word </h5>
+
+
+<div class="row">
+    <form action="@Url.Action("FindLongestWord", "Excercises")" method="post">
+        <textarea name="text" class=""
+                  style="height:300px; width: 100%;">
+            @if (Model != null)
+            {
+                @Model.text
+            }
+        </textarea>
+        <br />
+        <button type="submit">Find Largest Word</button><br />
+        <label>The Longest Word Is: </label><input type="text" value="@if(Model!=null){@Model.longest}" disabled /> <br />
+    </form>
+</div>
+

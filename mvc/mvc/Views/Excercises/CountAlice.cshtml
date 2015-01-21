@@ -1,0 +1,25 @@
+﻿@model mvc.Models.CountAliceViewModel
+
+@{
+    ViewBag.Title = "CountAlice";
+}
+
+<h2>CountAlice</h2>
+
+
+<h5>How many times does Alice appear</h5>
+
+<div class="row">
+    <form action="@Url.Action("CountAlice", "Excercises")" method="post">
+        <textarea name="text" class=""
+                  style="height:300px; width: 100%;">
+            @if (Model != null)
+            {
+                @Model.text
+            }
+        </textarea>
+        <br />
+        <button type="submit">Count</button><br />
+        <label>Alice appears this many times: </label><input type="number" value="@if(Model!=null){@Model.count}" disabled /> <br />
+    </form>
+</div>
