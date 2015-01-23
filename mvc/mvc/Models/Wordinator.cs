@@ -17,6 +17,8 @@ namespace mvc.Models
             var tempText = text.Replace('\n', ' ');
             tempText = tempText.Replace('.', ' ');
             words = tempText.Split(' ');
+
+            words = words.Where(m => m != " " && m != "").ToArray();
         }
 
         public string findLongestWord()
@@ -44,5 +46,31 @@ namespace mvc.Models
             return appearances;
         }
         
+        public Dictionary<string, int> WordFrequency()
+        {
+            var frequencies = new Dictionary<string, int>();
+            foreach(var word in words)
+            {
+                if (frequencies.Keys.Contains(word))
+                    frequencies[word]++;
+                else
+                    frequencies[word] = 1;
+            }
+            return frequencies;
+        }
+
+
+        public bool palindrome(string text)
+        {
+            if (text.Length <= 1)
+                return true;
+            else
+            {
+                if (text[0] != text[text.Length - 1])
+                    return false;
+                else
+                    return palindrome(text.Substring(1, text.Length - 2));
+            }
+        }   
     }
 }

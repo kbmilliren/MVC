@@ -1,0 +1,24 @@
+﻿@model mvc.Models.WordFrequencyViewModel
+
+@{
+    ViewBag.Title = "WordFrequency";
+}
+
+<h2>WordFrequency</h2>
+
+<div class="row">
+    <form action="@Url.Action("WordFrequency", "Exercises")" method="post">
+        <textarea name="text" class=""
+                  style="height:300px; width: 100%;">
+            @if (Model != null)
+            {
+                @Model.text
+            }
+        </textarea>
+        <br />
+        <button type="submit">Count</button><br />
+        <label>Alice appears this many times: </label><input type="@if(Model!=null){@Model.frequencies}" disabled /> <br />
+    </form>
+</div>
+
+

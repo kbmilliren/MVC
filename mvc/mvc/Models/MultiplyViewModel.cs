@@ -5,13 +5,13 @@ using System.Web;
 
 namespace mvc.Models
 {
-    public class SumViewModel
+    public class MultiplyViewModel
     {
         public int[] numbers { get; set; }
-        public int sum { get; set; }
+        public int multiply { get; set; }
     }
-    
-    public class SumPostModel
+
+    public class MultiplyPostModel
     {
         public int number1 { get; set; }
         public int number2 { get; set; }

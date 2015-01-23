@@ -1,0 +1,24 @@
+﻿@model mvc.Models.MultiplyViewModel
+
+@{
+    ViewBag.Title = "Multiply";
+    string numbers = "";
+    if(Model != null)
+    {
+        foreach (var number in Model.numbers)
+        {
+            numbers += number.ToString() + ", ";
+        }
+    }
+}
+
+<h2>Multiply</h2>
+
+<form action="@Url.Action("Multiply", "Exercises")" method="post">
+    <label>Input Number</label><input type="text" name="input" value="@if(Model != null){ @numbers }" /> <br />
+    <label>Multiplication Value: </label><input type="number" name="multiply" value="@if(Model != null){ @Model.multiply}" disabled /> <br />
+    <button type="submit">Get Multiplication Value</button>
+</form>
+
+
+

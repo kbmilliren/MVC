@@ -1,0 +1,23 @@
+﻿@model mvc.Models.SumViewModel
+
+@{
+    ViewBag.Title = "Sum";
+    string numbers = "";
+    if (Model != null)
+    {
+        foreach (var number in Model.numbers)
+        {
+            numbers += number.ToString() + ", ";
+        }
+    }
+}
+
+<h2>Sum</h2>
+
+
+<form action="@Url.Action("Sum", "Exercises")" method="post">
+    <label>Input Number</label><input type="text" name="input" value="@if(Model != null){ @numbers }" /> <br />
+    <label>Sum: </label><input type="number" name="sum" value="@if(Model != null){ @Model.sum}" disabled /> <br/>
+    <button type="submit">Get Sum</button>
+</form>
+

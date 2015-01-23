@@ -5,13 +5,13 @@ using System.Web;
 
 namespace mvc.Models
 {
-    public class SumViewModel
+    public class MaxViewModel
     {
         public int[] numbers { get; set; }
-        public int sum { get; set; }
+        public int max { get; set; }
     }
-    
-    public class SumPostModel
+
+    public class MaxPostModel
     {
         public int number1 { get; set; }
         public int number2 { get; set; }
