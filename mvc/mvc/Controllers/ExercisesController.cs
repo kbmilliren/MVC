@@ -164,6 +164,45 @@ namespace mvc.Controllers
             };
             return View(responseModel);
         }
+
+        [HttpGet]
+        public ActionResult palindrome()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult palindrome(string text)
+        {
+
+            var pal = new Wordinator(text);
+
+            var responseModel = new PalindromeViewModel
+            {
+                text = text,
+                palindrome = pal.palindrome()
+            };
+
+            return View(responseModel);
+        }
+        [HttpGet]
+        public ActionResult printNumbers()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult printNumbers(int model)
+        {
+            var mathinator = new Mathinator(new[] { model });
+            var responseModel = new NumbersViewModel
+            {
+                number = mathinator.numbers,
+                output = mathinator.printNumbers()
+
+            };
+            return View(responseModel);
+        }
     }
  
  }

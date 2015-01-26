@@ -1,0 +1,16 @@
+﻿@model mvc.Models.NumbersViewModel
+
+@{
+    ViewBag.Title = "PrintNumbers";
+}
+
+<h2>PrintNumbers</h2>
+
+<form action="@Url.Action("PrintNumbers", "Exercises")" method="post">
+    <label>Input Numbers</label><input type="number" name="model" value="@if(Model != null){ @Model.number }" /> <br />
+    <label>Numbers: </label><input type="number" name="output" value="@if(Model != null){ @Model.output}" disabled /> <br />
+    <button type="submit">Print Numbers</button>
+</form>
+
+
+

@@ -44,16 +44,32 @@ namespace mvc.Models
             return multiply;
         }
 
-        public int factorial()
+        public static int factorial(int n)
         {
-            int n = 1;
-            var fact = 1;
+            
+            var fact = 0;
             for (int i = n; i > 1; i--)
                 fact *= i;
             return fact;
         }
 
-
+        public string printNumbers(int a, int b)
+        {
+            var output = "";
+            for (var counter = a; counter <= b && (counter - a <= 100); counter++)
+            {
+                if (counter % 15 == 0)
+                    output += "fizzbuzz<br />";
+                else if (counter % 3 == 0)
+                    output += "fizz<br />";
+                else if (counter % 5 == 0)
+                    output += "buzz<br />";
+                else
+                    output += counter + "<br />";
+            }
+            return output;
+            
+        }
     }
    
 

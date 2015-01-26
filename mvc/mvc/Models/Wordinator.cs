@@ -60,17 +60,10 @@ namespace mvc.Models
         }
 
 
-        public bool palindrome(string text)
+        public bool palindrome()
         {
-            if (text.Length <= 1)
-                return true;
-            else
-            {
-                if (text[0] != text[text.Length - 1])
-                    return false;
-                else
-                    return palindrome(text.Substring(1, text.Length - 2));
-            }
+            return text.Reverse() == text;
+
         }   
     }
 }

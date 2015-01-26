@@ -13,6 +13,6 @@ namespace mvc.Models
 
     public class FactorialPostModel
     {
-        public int number { get; set; }
+        public int[] number { get; set; }
     }
 }

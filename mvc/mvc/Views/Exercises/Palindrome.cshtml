@@ -1,0 +1,14 @@
+﻿@model mvc.Models.PalindromeViewModel
+
+@{
+    ViewBag.Title = "Palindrome";
+}
+
+<h2>Palindrome</h2>
+
+<form action="@Url.Action("Palindrome", "Exercises")" method="post">
+    <label>Word</label><input type="text" name="text" value="@if(Model != null){ @Model.text }" /> <br />
+    <label>Palindrome: </label><input type="text" name="palindrome" value="@if(Model != null){ @Model.palindrome}" disabled /> <br />
+    <button type="submit">Check to see if word is a palindrome</button>
+</form>
+
