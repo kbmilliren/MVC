@@ -17,7 +17,7 @@
         </textarea>
         <br />
         <button type="submit">Count</button><br />
-        <label>Alice appears this many times: </label><input type="@if(Model!=null){@Model.frequencies}" disabled /> <br />
+        @if(Model!=null){@Model.frequencies} <br />
     </form>
 </div>
 

@@ -138,11 +138,10 @@ namespace mvc.Controllers
         public ActionResult wordFrequency(string text)
         {
             var wordinator = new Wordinator(text);
-            var responseModel = new WordFrequencyViewModel
-            {
-                text = text,
-                frequencies = wordinator.WordFrequency()
-            };
+            var responseModel = new WordFrequencyViewModel();
+            responseModel.text = text;
+            responseModel.frequencies = wordinator.WordFrequency();
+
             return View(responseModel);
         }
 
@@ -153,13 +152,12 @@ namespace mvc.Controllers
         }
         
         [HttpPost]
-        public ActionResult factorial(int model)
+        public ActionResult factorial(int num)
             {
-                var mathinator = new Mathinator(new[] { model });
                 var responseModel = new FactorialViewModel
             {
-                number = mathinator.numbers,
-                factorial = mathinator.factorial()
+                number = num,
+                factorial = Mathinator.factorial(num)
 
             };
             return View(responseModel);
@@ -180,7 +178,7 @@ namespace mvc.Controllers
             var responseModel = new PalindromeViewModel
             {
                 text = text,
-                palindrome = pal.palindrome()
+                palindrome = pal.palindrome(text)
             };
 
             return View(responseModel);
@@ -192,18 +190,54 @@ namespace mvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult printNumbers(int model)
+        public ActionResult printNumbers(int num1, int num2)
         {
-            var mathinator = new Mathinator(new[] { model });
-            var responseModel = new NumbersViewModel
-            {
-                number = mathinator.numbers,
-                output = mathinator.printNumbers()
+           var responseModel = new NumbersViewModel();
+           responseModel.num1 = num1;
+           responseModel.num2 = num2;
+           responseModel.output = Mathinator.printNumbers(num1, num2);
 
-            };
-            return View(responseModel);
+      
+           return View(responseModel);
         }
-    }
- 
- }
+
+        [HttpGet]
+        public ActionResult perfectNumber()
+        {
+            return View();
+        }
+
+        /*[HttpPost]
+        public ActionResult perfectNumber(int num1)
+        {
+            var responseModel = new PerfectViewModel();
+            responseModel.num1 = num1;
+            responseModel.result = Mathinator.perfectNumber(num1);
+
+            return View(responseModel);
+        }*/
+
+        [HttpGet]
+        public ActionResult filterLongstWord()
+        {
+            return View();
+        }
+
+        /*[HttpPost]
+        public ActionResult filterLongestWord(string text, int i)
+        {
+            var wordinator = new Wordinator(text);
+            var responseModel = new FilterViewModel();
+            responseModel.i = i;
+            responseModel.text = wordinator.filterLongestWord(i);
+
+            return View(responseModel);
+        }*/
+
+        }
+ }  
+
+
     
+ 
+ 

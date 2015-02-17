@@ -1,0 +1,13 @@
+﻿@model mvc.Models.PerfectViewModel
+
+@{
+    ViewBag.Title = "PerfectNumbers";
+}
+
+<h2>PerfectNumbers</h2>
+
+<form action="@Url.Action("PerfectNumbers", "Exercises")" method="post">
+    <label>Input Number</label><input type="number" name="num1" value="@if(Model != null){ @Model.num1}" /> <br />
+    <label>Sum: </label><input type="text" name="result" value="@if(Model != null){ @Model.result}" disabled /> <br />
+    <button type="submit">Check to see if it is a perfect number</button>
+</form>

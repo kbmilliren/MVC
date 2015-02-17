@@ -4,13 +4,23 @@
     ViewBag.Title = "PrintNumbers";
 }
 
+@if (Model != null)
+{
+    Html.Raw(Model.output);
+}
+
+
 <h2>PrintNumbers</h2>
 
 <form action="@Url.Action("PrintNumbers", "Exercises")" method="post">
-    <label>Input Numbers</label><input type="number" name="model" value="@if(Model != null){ @Model.number }" /> <br />
-    <label>Numbers: </label><input type="number" name="output" value="@if(Model != null){ @Model.output}" disabled /> <br />
+    <label>Input Number1</label><input type="number" name="num1" value="@if(Model != null){ @Model.num1 }" /> <br />
+    <label>Input Number2</label><input type="number" name="num2" value="@if(Model != null){ @Model.num2 }" /> <br />
+
     <button type="submit">Print Numbers</button>
 </form>
 
-
+@if(Model != null)
+{
+    @Html.Raw(Model.output);
+}
 

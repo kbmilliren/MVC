@@ -5,10 +5,9 @@ using System.Web;
 
 namespace mvc.Models
 {
-    public class FactorialViewModel
+    public class PerfectViewModel
     {
-        public int number { get; set; }
-        public int factorial { get; set; }
+        public int num1 { get; set; }
+        public string result { get; set; }
     }
-
 }

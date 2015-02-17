@@ -7,7 +7,9 @@ namespace mvc.Models
 {
     public class NumbersViewModel
     {
-        public int[] number { get; set; }
-        public int[] output { get; set; }
+
+        public int num1 { get; set; }
+        public int num2 { get; set; }
+        public string output { get; set; }
     }
 }

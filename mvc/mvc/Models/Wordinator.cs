@@ -60,10 +60,24 @@ namespace mvc.Models
         }
 
 
-        public bool palindrome()
+       public bool palindrome(string text)
         {
-            return text.Reverse() == text;
+             return new string(text.Reverse().ToArray()) == text;
+        }
 
-        }   
+
+
+        /*public string filterLongestWord(string text, int i)
+        {
+            string longWords = "";
+            var word = 0;
+            foreach (var wor in text)
+            {
+                if ( > i)
+                    longWords = wor;
+            }
+            return longWords;
+        }*/
     }
+
 }
